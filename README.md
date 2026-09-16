@@ -87,7 +87,7 @@ Everything in the paper reproduces **offline from the committed run logs** — n
 no model access.
 
 ```bash
-git clone <this repo> && cd dissent
+git clone https://github.com/biditdas18/dissent && cd dissent
 pip install pandas numpy pyarrow matplotlib     # plus a LaTeX install for the PDF
 ./reproduce.sh
 ```

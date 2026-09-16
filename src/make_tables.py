@@ -122,6 +122,37 @@ def main():
         mac("RetainedCalls", sum(sum(per[m].values()) for m in kept))
         mac("RetainedRefusals", sum(per[m].get("refusal", 0) for m in kept))
 
+        # Per-medium refusal rate for the removed agent. The removal decision in D3
+        # rested on this rate being strongly differential across media, which would
+        # bias the primary (medium) contrast through differential missingness.
+        # The log has no `medium` field; medium is carried by `phase`/`parse_mode`.
+        bymed = collections.defaultdict(collections.Counter)
+        if dropped:
+            for line in open(rl):
+                try:
+                    rec = json.loads(line)
+                except Exception:
+                    continue
+                if str(rec.get("model")) != dropped[0]:
+                    continue
+                tag = str(rec.get("parse_mode")) + str(rec.get("phase"))
+                bymed["Code" if "code" in tag else "NL"][str(rec.get("stop_reason"))] += 1
+            for lab, c in bymed.items():
+                n = sum(c.values())
+                k = c.get("refusal", 0)
+                mac(f"RefusalAgent{lab}N", n)
+                mac(f"RefusalAgent{lab}K", k)
+                mac(f"RefusalAgent{lab}Pct", pct(k / n) if n else "n/a")
+
+    # ---- exclusion breakdown by pre-registered reason, from analysis/exclusions.csv
+    ex = os.path.join(ANA, "exclusions.csv")
+    if os.path.exists(ex):
+        import csv as _csv
+        import collections as _c
+        reasons = _c.Counter(r["reason"] for r in _csv.DictReader(open(ex)))
+        mac("ExclRemovedAgent", reasons.get("agent_removed_D3_refusal_artifact", 0))
+        mac("ExclRevisionMissing", reasons.get("revision_missing_or_unparsed", 0))
+
     # ---- item-pool difficulty screening (analysis/pool_screening.json)
     # Initial (pre-pressure) accuracy per pool and medium. This is a property of
     # the items and the roster, measured before any pressure condition, and it
