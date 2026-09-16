@@ -22,6 +22,11 @@
 % Public code/data URL. MUST be set before submitting: while empty the paper
 % prints a red NOT SET marker rather than silently omitting the statement.
 \newcommand{\RepoURL}{https://github.com/biditdas18/dissent}
+% Anonymized mirror, printed only in the double-blind build. Verified to resolve
+% (HTTP 200) and to carry the full tree: src/, analysis/, data/runs/, tests/,
+% PREREGISTRATION.md, DEVIATIONS.md. The bare root path returns 401, so the
+% README path is the URL that works.
+\newcommand{\AnonURL}{https://anonymous.4open.science/r/dissent-E57D/README.md}
 
 \begin{document}
 
@@ -433,7 +438,8 @@ macro computed from \texttt{analysis/results.json}. \texttt{reproduce.sh} rebuil
 tables, figures and this PDF offline from the committed logs, with no model access
 required.
 \ifanon
-Repository URL withheld for anonymous review.
+An anonymized mirror of the full repository is available for review at
+\url{\AnonURL}.
 \else
 \ifx\RepoURL\empty
 \textcolor{red}{[REPOSITORY URL NOT SET: set \texttt{\textbackslash RepoURL} in
