@@ -67,6 +67,9 @@ def main():
     lo, hi = p["delta_ci"]
     mac("DeltaCI", f"[{num(lo)}, {num(hi)}]")
     mac("DeltaCIPct", f"[{pct(lo)}, {pct(hi)}]")
+    # Largest effect the interval still admits, in points. The paper uses this to
+    # state what the null does NOT rule out, so it must not be rounded by hand.
+    mac("DeltaCIHalfPct", pct(max(abs(lo), abs(hi))))
     mac("ExcessNL", num(p["excess_HC_nl"]))
     mac("ExcessNLPct", pct(p["excess_HC_nl"]))
     mac("ExcessCode", num(p["excess_HC_code"]))

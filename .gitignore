@@ -26,3 +26,9 @@ keys*
 # working notes and stray view renders (not part of the release)
 STATUS.md
 _view_*.png
+paper/main_anon.tex
+paper/main_anon.aux
+paper/main_anon.log
+paper/main_anon.out
+paper/main_anon.bbl
+paper/main_anon.blg
