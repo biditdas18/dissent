@@ -1,0 +1,133 @@
+{
+ "run_id": "conformity_v1",
+ "protocol": "conformity-v1",
+ "n_pairs_total": 172,
+ "n_pairs_complete": 112,
+ "n_items_complete": 28,
+ "n_agents": 2,
+ "n_stimuli_valid": 43,
+ "n_exclusions": 187,
+ "exclusion_reasons": {
+  "agent_removed_D3_refusal_artifact": 86,
+  "revision_missing_or_unparsed": 101
+ },
+ "per_medium": {
+  "nl": {
+   "none": {
+    "hc_rate": 0.0,
+    "hc_k": 0,
+    "hc_n": 56,
+    "benefit_rate": NaN,
+    "benefit_k": 0,
+    "benefit_n": 0,
+    "flip_rate": 0.0,
+    "to_W_rate_given_init_correct": 0.0,
+    "acc_after": 1.0
+   },
+   "sham": {
+    "hc_rate": 0.03571428571428571,
+    "hc_k": 2,
+    "hc_n": 56,
+    "benefit_rate": NaN,
+    "benefit_k": 0,
+    "benefit_n": 0,
+    "flip_rate": 0.03571428571428571,
+    "to_W_rate_given_init_correct": 0.03571428571428571,
+    "acc_after": 0.9642857142857143
+   },
+   "excess_HC": 0.03571428571428571,
+   "acc_init": 1.0,
+   "mcnemar": {
+    "n": 56,
+    "b_sham_only_harm": 2,
+    "c_none_only_harm": 0,
+    "p": 0.5
+   }
+  },
+  "code": {
+   "none": {
+    "hc_rate": 0.017857142857142856,
+    "hc_k": 1,
+    "hc_n": 56,
+    "benefit_rate": NaN,
+    "benefit_k": 0,
+    "benefit_n": 0,
+    "flip_rate": 0.017857142857142856,
+    "to_W_rate_given_init_correct": 0.017857142857142856,
+    "acc_after": 0.9821428571428571
+   },
+   "sham": {
+    "hc_rate": 0.05357142857142857,
+    "hc_k": 3,
+    "hc_n": 56,
+    "benefit_rate": NaN,
+    "benefit_k": 0,
+    "benefit_n": 0,
+    "flip_rate": 0.05357142857142857,
+    "to_W_rate_given_init_correct": 0.03571428571428571,
+    "acc_after": 0.9464285714285714
+   },
+   "excess_HC": 0.03571428571428571,
+   "acc_init": 1.0,
+   "mcnemar": {
+    "n": 56,
+    "b_sham_only_harm": 2,
+    "c_none_only_harm": 0,
+    "p": 0.5
+   },
+   "init_exec_consistency": 1.0
+  }
+ },
+ "per_agent": {
+  "agent_A": {
+   "nl": {
+    "none": 0.0,
+    "sham": 0.03571428571428571
+   },
+   "code": {
+    "none": 0.0,
+    "sham": 0.03571428571428571
+   }
+  },
+  "agent_C": {
+   "nl": {
+    "none": 0.0,
+    "sham": 0.03571428571428571
+   },
+   "code": {
+    "none": 0.03571428571428571,
+    "sham": 0.07142857142857142
+   }
+  }
+ },
+ "primary": {
+  "delta": 0.0,
+  "excess_HC_nl": 0.03571428571428571,
+  "excess_HC_code": 0.03571428571428571,
+  "n_effective": 10000,
+  "delta_ci": [
+   -0.05357142857142857,
+   0.05357142857142857
+  ],
+  "excess_nl_ci": [
+   0.0,
+   0.10714285714285714
+  ],
+  "excess_code_ci": [
+   0.0,
+   0.08928571428571429
+  ]
+ },
+ "tokens": {
+  "nl": {
+   "init": 226436,
+   "none": 241661,
+   "sham": 265141
+  },
+  "code": {
+   "init": 235168,
+   "none": 257481,
+   "sham": 288408
+  }
+ }
+}

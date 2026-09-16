@@ -1,0 +1,5 @@
+medium,arm,n_init_correct,HC_k,HC_rate,benefit_rate,flip_rate,acc_after
+nl,none,56,0,0.0,,0.0,1.0
+nl,sham,56,2,0.0357,,0.0357,0.9643
+code,none,56,1,0.0179,,0.0179,0.9821
+code,sham,56,3,0.0536,,0.0536,0.9464

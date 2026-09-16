@@ -1,0 +1,53 @@
+{
+ "2510.10185": {
+  "arxiv_id": "2510.10185v3",
+  "title": "Auditing medical multi-agent AI reveals risks of false consensus",
+  "published": "2025-10-11",
+  "authors": [
+   "Yinghao Zhu",
+   "Lei Gu",
+   "Zixiang Wang",
+   "Haoran Sang",
+   "Dehao Sui"
+  ],
+  "summary": "Large language models are increasingly being assembled into medical multi-agent systems that emulate multidisciplinary consultation through specialist roles, peer review and consensus formation. In clinical decision support, however, apparent consensus is not enough. Clinicians also need to know whether agents checked the evidence, addressed disagreement and kept uncertainty visible. Current evaluations largely score final accuracy, leaving the safety of the collaborative process untested. Here we introduce MedAgentAudit, a clinically grounded workflow audit framework for diagnosing and quantifying collaborative failure modes in medical multi-agent systems. From 3,600 execution logs, we derive an expert-validated taxonomy of ten recurrent failures spanning task comprehension, collaborative discussion, and synthesis and decision-making. We then deploy an expert-validated automated auditor as non-interventional probes across 14,400 cases, covering six multi-agent architectures, six medical text and vision datasets, and four large language model settings per modality. Across systems, collaboration yields uneven accuracy gains and frequent process failures. Unsupported observations affect 16.63% of cases and propagate downstream. In discussion, agents repeat initial views in 98.42% of cases rather than re-examining evidence, and fail to activate specialist reasoning in 42.73%. During synthesis, final answers often substitute authority or majority count for evidence checking, showing authority bias in 28.76% (rising from 35.30% to 68.75% across rounds), self-contradiction in 18.53%, contradiction neglect in 5.48% and minority suppression in 5.11%. MedAgentAudit reframes medical AI evaluation from output scoring to process-level safety and accountability, providing a practical foundation for transparent, auditable and clinician-supervised agentic systems in medicine.",
+  "comment": "Code and Data: https://github.com/MedX-PKU/MedAgentAudit"
+ },
+ "2606.29270": {
+  "arxiv_id": "2606.29270v1",
+  "title": "Minority Sentinel: When to Overturn Majority Voting in Multi-Agent LLM Debates",
+  "published": "2026-06-28",
+  "authors": [
+   "Chuan He",
+   "Zebin Chen",
+   "Zhengyi Yang",
+   "Shaobo Qiao",
+   "Mingchen Ju"
+  ],
+  "summary": "Multi-Agent Debate (MAD) with Majority Voting is a dominant paradigm for improving LLM reasoning, yet its effectiveness rests on the Condorcet Jury Theorem's assumption of independent errors. Because contemporary LLMs share similar pretraining corpora, their errors are strongly correlated, causing the majority to systematically suppress correct minority opinions, a phenomenon we term Minority Truth. Through debates among three heterogeneous LLM agents on six benchmarks, we find that roughly one in four divergent cases has the minority holding the correct answer, yielding a 10-percentage-point theoretical recovery margin. We propose Minority Sentinel, a lightweight meta-classifier that extracts a multi-dimensional debate fingerprint from debate logs and trains a LightGBM model to decide when to overturn majority voting. Minority Sentinel achieves a stable Flip Precision of 81.2% with positive Net Gain across all six datasets and all 20 random seed trials, demonstrating that debate logs contain sufficient behavioral signals for a non-LLM classifier to reliably recover suppressed minorities without degrading system accuracy. The LLM-as-Judge baseline yields negative Net Gain despite higher recall, confirming that flip safety, not recovery volume, determines intervention value.",
+  "comment": "11 pages, 4 figures. Accepted at the AgentSearch Workshop @ SIGIR 2026, Melbourne, Australia"
+ },
+ "2511.07784": {
+  "arxiv_id": "2511.07784v1",
+  "title": "Can LLM Agents Really Debate? A Controlled Study of Multi-Agent Debate in Logical Reasoning",
+  "published": "2025-11-11",
+  "authors": [
+   "Haolun Wu",
+   "Zhenkun Li",
+   "Lingyao Li"
+  ],
+  "summary": "Multi-agent debate (MAD) has recently emerged as a promising framework for improving the reasoning performance of large language models (LLMs). Yet, whether LLM agents can genuinely engage in deliberative reasoning, beyond simple ensembling or majority voting, remains unclear. We address this question through a controlled study using the Knight--Knave--Spy logic puzzle, which enables precise, step-wise evaluation of debate outcomes and processes under verifiable ground truth. We systematically set up six structural and cognitive factors, including agent team size, composition, confidence visibility, debate order, debate depth, and task difficulty, to disentangle their respective effects on collective reasoning. Our results show that intrinsic reasoning strength and group diversity are the dominant drivers of debate success, while structural parameters such as order or confidence visibility offer limited gains. Beyond outcomes, process-level analyses identify key behavioral patterns: majority pressure suppresses independent correction, effective teams overturn incorrect consensus, and rational, validity-aligned reasoning most strongly predicts improvement. These findings provide valuable insights into how and why LLM debates succeed or fail, offering guidance for designing interpretable and truth-seeking multi-agent reasoning systems.",
+  "comment": "20 pages, 6 figures"
+ },
+ "2605.00914": {
+  "arxiv_id": "2605.00914v1",
+  "title": "The Cost of Consensus: Isolated Self-Correction Prevails Over Unguided Homogeneous Multi-Agent Debate",
+  "published": "2026-04-29",
+  "authors": [
+   "Bla\u017e Bertalani\u010d",
+   "Carolina Fortuna"
+  ],
+  "summary": "Multi-agent debate, where teams of LLMs iteratively exchange rationales and vote on answers, is widely deployed under the assumption that peer review filters hallucinations. Yet the failure dynamics of homogeneous debate remain poorly understood, therefore we report findings from a controlled empirical study of teams of $N{=}10$ homogeneous agents (Qwen2.5-7B, Llama-3.1-8B, Ministral-3-8B) across $R{=}3$ debate rounds on two high-difficulty benchmarks (GSM-Hard and MMLU-Hard). We compare peer debate against isolated self-correction and a stochastic noise control that injects rationales from unrelated problems. We decompose debate failure into three model-dependent pathways: sycophantic conformity, where agents uncritically adopt majority answers (modal adoption up to 85.5%); contextual fragility, where peer rationales destabilize previously correct reasoning (vulnerability rate up to 70.0%); and consensus collapse, where plurality voting discards correct answers already present in the generation pool (oracle gap up to 32.3 percentage points). Ablations over communication density ($K \\in \\{2,4,9\\}$) and sampling temperature ($T \\in \\{0.4, 0.7\\}$) show that conformity reaches high levels at minimal peer exposure ($K{=}2$) and intensifies with greater initial diversity. Across all configurations, debate consumes 2.1-3.4$\\times$ more tokens (up to 28,631 tokens per problem) than self-correction for equal or lower accuracy. Our results indicate that, within the 7-8B parameter class, homogeneous teams without structured roles do not benefit from unguided peer exchange, and that isolated self-correction consistently offers a more favorable cost-accuracy tradeoff.",
+  "comment": "19 pages, ACM Conference on AI and Agentic Systems"
+ }
+}

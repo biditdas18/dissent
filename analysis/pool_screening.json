@@ -1,0 +1,74 @@
+[
+ {
+  "pool": "gsm8k_main",
+  "medium": "nl",
+  "calls": 86,
+  "parsed": 86,
+  "n": 86,
+  "correct": 86,
+  "acc": 1.0
+ },
+ {
+  "pool": "gsm8k_main",
+  "medium": "code",
+  "calls": 86,
+  "parsed": 86,
+  "n": 86,
+  "correct": 86,
+  "acc": 1.0
+ },
+ {
+  "pool": "gsmhard_pilot",
+  "medium": "nl",
+  "calls": 20,
+  "parsed": 20,
+  "n": 20,
+  "correct": 20,
+  "acc": 1.0
+ },
+ {
+  "pool": "gsmhard_pilot",
+  "medium": "code",
+  "calls": 20,
+  "parsed": 20,
+  "n": 20,
+  "correct": 18,
+  "acc": 0.9
+ },
+ {
+  "pool": "mmlupro_prefixbug",
+  "medium": "nl",
+  "calls": 60,
+  "parsed": 0,
+  "n": 0,
+  "correct": 0,
+  "acc": NaN
+ },
+ {
+  "pool": "mmlupro_prefixbug",
+  "medium": "code",
+  "calls": 50,
+  "parsed": 6,
+  "n": 6,
+  "correct": 2,
+  "acc": 0.3333333333333333
+ },
+ {
+  "pool": "mmlupro_fixed",
+  "medium": "nl",
+  "calls": 4,
+  "parsed": 4,
+  "n": 4,
+  "correct": 2,
+  "acc": 0.5
+ },
+ {
+  "pool": "mmlupro_fixed",
+  "medium": "code",
+  "calls": 4,
+  "parsed": 4,
+  "n": 4,
+  "correct": 2,
+  "acc": 0.5
+ }
+]

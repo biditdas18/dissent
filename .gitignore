@@ -1,0 +1,28 @@
+# Raw benchmark downloads: 6 MB, not redistributed here, and re-fetched
+# automatically by `python src/build_sample.py` from the canonical URLs.
+data/raw/
+
+# LaTeX build products (main.pdf IS committed; the rest are noise)
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.synctex.gz
+paper/*.fdb_latexmk
+paper/*.fls
+
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+.tmp/
+
+# never commit credentials
+.env
+*.env
+keys*
+
+# working notes and stray view renders (not part of the release)
+STATUS.md
+_view_*.png

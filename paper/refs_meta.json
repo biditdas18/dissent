@@ -1,0 +1,72 @@
+{
+ "2607.05545": {
+  "title": "Most LLM Conformity Needs No Speaker: Measuring the Speaker-Free Floor in Peer-Pressure Benchmarks",
+  "authors": [
+   "Yibo Hu",
+   "Jiaming Qu"
+  ],
+  "published": "2026-07-06",
+  "arxiv": "2607.05545"
+ },
+ "2508.17536": {
+  "title": "Debate or Vote: Which Yields Better Decisions in Multi-Agent Large Language Models?",
+  "authors": [
+   "Hyeong Kyu Choi",
+   "Xiaojin Zhu",
+   "Sharon Li"
+  ],
+  "published": "2025-08-24",
+  "arxiv": "2508.17536"
+ },
+ "2504.05047": {
+  "title": "Debate Only When Necessary: Adaptive Multiagent Collaboration for Efficient LLM Reasoning",
+  "authors": [
+   "Sugyeong Eo",
+   "Hyeonseok Moon",
+   "Evelyn Hayoon Zi",
+   "Chanjun Park",
+   "Heuiseok Lim"
+  ],
+  "published": "2025-04-07",
+  "arxiv": "2504.05047"
+ },
+ "2511.11306": {
+  "title": "iMAD: Intelligent Multi-Agent Debate for Efficient and Accurate LLM Inference",
+  "authors": [
+   "Wei Fan",
+   "JinYi Yoon",
+   "Bo Ji"
+  ],
+  "published": "2025-11-14",
+  "arxiv": "2511.11306"
+ },
+ "2606.29270": {
+  "title": "Minority Sentinel: When to Overturn Majority Voting in Multi-Agent LLM Debates",
+  "authors": [
+   "Chuan He",
+   "Zebin Chen",
+   "Zhengyi Yang",
+   "Shaobo Qiao",
+   "Mingchen Ju",
+   "Jiate Liu",
+   "Dong Wen",
+   "Guanfeng Liu"
+  ],
+  "published": "2026-06-28",
+  "arxiv": "2606.29270"
+ },
+ "2606.00820": {
+  "title": "Not All Flips Are Conformity: Decomposing Stance Convergence in Multi-Agent LLM Debate",
+  "authors": [
+   "Xiqi Hao",
+   "Zengqing Wu",
+   "Yu-Xuan Qiu",
+   "Chuan Xiao",
+   "Ruiqi Xu",
+   "Shuyuan Zheng",
+   "Jianbin Qin"
+  ],
+  "published": "2026-05-30",
+  "arxiv": "2606.00820"
+ }
+}

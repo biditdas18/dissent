@@ -1,0 +1,29 @@
+{
+ "arXiv:2508.17536": {
+  "title": "Debate or Vote: Which Yields Better Decisions in Multi-Agent Large Language Models?",
+  "abstract": "Multi-Agent Debate~(MAD) has emerged as a promising paradigm for improving the performance of large language models through collaborative reasoning. Despite recent advances, the key factors driving MAD's effectiveness remain unclear. In this work, we disentangle MAD into two key components--Majority Voting and inter-agent Debate--and assess their respective contributions. Through extensive experiments across seven NLP benchmarks, we find that Majority Voting alone accounts for most of the performance gains typically attributed to MAD. To explain this, we propose a theoretical framework that models debate as a stochastic process. We prove that it induces a martingale over agents'belief trajectories, implying that debate alone does not improve expected correctness. Guided by these insights, we demonstrate that targeted interventions, by biasing the belief update toward correction, can meaningfully enhance debate effectiveness. Overall, our findings suggest that while MAD has potential, simple ensembling methods remain strong and more reliable alternatives in many practical settings. Code is released in https://github.com/deeplearning-wisc/debate-or-vote.",
+  "date": "2025-08-24",
+  "venue": "Neural Information Processing Systems",
+  "authors": [
+   "Hyeong Kyu Choi",
+   "Xiaojin Zhu",
+   "Yixuan Li"
+  ]
+ },
+ "arXiv:2509.05396": {
+  "error": "<HTTPError 429: ''>"
+ },
+ "arXiv:2504.05047": {
+  "title": "Debate Only When Necessary: Adaptive Multiagent Collaboration for Efficient LLM Reasoning",
+  "abstract": "Multiagent collaboration has emerged as a promising framework for enhancing the reasoning capabilities of large language models (LLMs). Despite improvements in reasoning, the approach introduces substantial computational overhead resulting from iterative agent interactions. Furthermore, engaging in unnecessary debates increases the risk of generating erroneous responses. To address these challenges, we propose Debate Only When Necessary (DOWN), an adaptive multiagent debate framework that selectively activates debate based on the confidence score of the agent's initial response. Debate is activated only for queries requiring further deliberation, during which agents refine their outputs by referencing peer responses and associated confidence scores. Evaluations on benchmarks show that DOWN improves efficiency by up to six times while preserving or even outperforming the performance of existing methods. Further analysis indicates that DOWN effectively mitigates the risk of error propagation stemming from the unnecessary debate process. These findings demonstrate the effectiveness of our approach in delivering high-performance LLM solutions at a lower computational cost.",
+  "date": "2025-04-07",
+  "venue": "arXiv.org",
+  "authors": [
+   "Sugyeong Eo",
+   "Hyeonseok Moon",
+   "E. H. Zi",
+   "Chanjun Park",
+   "Heu-Jeoung Lim"
+  ]
+ }
+}

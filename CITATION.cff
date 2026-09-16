@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper below."
+authors:
+  - family-names: Das
+    given-names: Bidit
+title: "Does Symbolic Grounding Inoculate LLM Agents Against Conformity?"
+abstract: >
+  A pre-registered experiment on harmful conformity in multi-agent debate,
+  testing whether the debated medium (prose vs. an executable program) changes
+  how often a correct agent defers to a confident wrong peer. Reports a null
+  primary contrast and a benchmark-saturation obstacle that bounds it.
+year: 2026
+license: MIT
