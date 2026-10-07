@@ -93,7 +93,14 @@ def fig1(R, S):
 
     fig.tight_layout(w_pad=2.0)
     for ext in ("png", "pdf"):
-        fig.savefig(os.path.join(FIG, f"fig1_null_and_saturation.{ext}"))
+        # CreationDate=None suppresses the timestamp matplotlib embeds in PDF
+        # output. Without it this file differs on every run and `git status` is
+        # dirty after reproduce.sh, which contradicts the byte-identical
+        # reproduction this repository claims. PNG carries no timestamp, and
+        # matplotlib only accepts the metadata key for the PDF backend.
+        meta = {"CreationDate": None} if ext == "pdf" else None
+        fig.savefig(os.path.join(FIG, f"fig1_null_and_saturation.{ext}"),
+                    metadata=meta)
     plt.close(fig)
     return min_flips_for_significance()
 
