@@ -155,6 +155,18 @@ def main():
         reasons = _c.Counter(r["reason"] for r in _csv.DictReader(open(ex)))
         mac("ExclRemovedAgent", reasons.get("agent_removed_D3_refusal_artifact", 0))
         mac("ExclRevisionMissing", reasons.get("revision_missing_or_unparsed", 0))
+        # A reviewer read the exclusion total against the observed total and found
+        # them incompatible. They have different denominators, so emit both so the
+        # paper can say exactly what each counts. The removed-agent rows are
+        # pair-level (arm="both"); the revision rows are arm-level, so they exceed
+        # the number of distinct pairs they cover.
+        import csv as _csv
+        _xp = os.path.join(ANA, "exclusions.csv")
+        if os.path.exists(_xp):
+            _rows = list(_csv.DictReader(open(_xp)))
+            _rev = [r for r in _rows if r["reason"] != "agent_removed_D3_refusal_artifact"]
+            mac("ExclRevisionPairs", len({(r["qid"], r["agent"], r["medium"]) for r in _rev}))
+        mac("CellsDesignRetained", R["n_pairs_total"])
 
     # ---- item-pool difficulty screening (analysis/pool_screening.json)
     # Initial (pre-pressure) accuracy per pool and medium. This is a property of

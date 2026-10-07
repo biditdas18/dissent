@@ -1,5 +1,12 @@
 # Does Symbolic Grounding Inoculate LLM Agents Against Conformity?
 
+> **Accepted** at [NeSyDebates 2026](https://kse2026.kse-conferences.org/workshop-nesydebates/),
+> the 1st International Workshop on Neuro-Symbolic Debates for Safeguarded Generative
+> AI, co-located with KSE 2026 (Kanazawa, Japan, 10 November 2026). Paper 262,
+> double-blind review. Reviewer concerns and the camera-ready changes made in
+> response are recorded in [`RESPONSE_TO_REVIEWS.md`](RESPONSE_TO_REVIEWS.md). No new
+> data was collected for the camera-ready and no reported number changed.
+
 A **pre-registered** experiment on *harmful conformity* in multi-agent debate.
 
 An agent solves a problem and gets it right. Then it is shown two confident peers

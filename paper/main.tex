@@ -19,6 +19,24 @@
 \newif\ifanon
 \anonfalse
 
+% ---------------------------------------------------------------------------
+% Postprint switch. Leave \postprintfalse for the camera-ready that goes to the
+% proceedings: IEEE adds its own copyright footer there. Set \postprinttrue for
+% the copy posted to arXiv or a personal site, which IEEE policy permits for the
+% accepted version provided the notice below appears on the first page.
+% Build it with paper/build_postprint.sh.
+% ---------------------------------------------------------------------------
+\newif\ifpostprint
+\postprintfalse
+\newcommand{\IEEENotice}{\copyright{} 2026 IEEE. Personal use of this material is
+permitted. Permission from IEEE must be obtained for all other uses, in any current
+or future media, including reprinting/republishing this material for advertising or
+promotional purposes, creating new collective works, for resale or redistribution to
+servers or lists, or reuse of any copyrighted component of this work in other works.
+Accepted at the 1st International Workshop on Neuro-Symbolic Debates for Safeguarded
+Generative AI (NeSyDebates 2026), co-located with the 18th International Conference
+on Knowledge and Systems Engineering (KSE 2026).}
+
 % Public code/data URL. MUST be set before submitting: while empty the paper
 % prints a red NOT SET marker rather than silently omitting the statement.
 \newcommand{\RepoURL}{https://github.com/biditdas18/dissent}
@@ -30,11 +48,19 @@
 
 \begin{document}
 
-\title{Does Symbolic Grounding Inoculate LLM Agents Against Conformity?}
+% The accepted title is kept verbatim as the first clause. The subtitle was added
+% for the camera-ready at a reviewer's request: a question-form title alone implies
+% an answer this sample cannot give. Delete from the colon onward to revert.
+\title{Does Symbolic Grounding Inoculate LLM Agents Against Conformity?\\
+A Pre-Registered Null and a Benchmark-Saturation Obstacle}
 \ifanon
   \author{\IEEEauthorblockN{Anonymous submission}}
 \else
-  \author{\IEEEauthorblockN{Bidit Das}}
+  \ifpostprint
+    \author{\IEEEauthorblockN{Bidit Das}\thanks{\IEEENotice}}
+  \else
+    \author{\IEEEauthorblockN{Bidit Das}}
+  \fi
 \fi
 \maketitle
 
@@ -44,8 +70,10 @@ answer, then drops it under peer pressure. Almost all evidence for this comes fr
 debate in natural language, where a peer's claim cannot be checked mechanically. We
 ask a diagnostic question. Is conformity a property of the debated \emph{medium} or
 of the \emph{model}? We hold the task, the agents, and the fabricated peer pressure
-fixed. We vary one factor: whether the debated object is prose or an executable
-program the agent can run. The sample is \NItems{} GSM8K items and \NAgents{} agents,
+fixed. We vary one factor: whether the debated object is prose or a program shown
+together with its real execution output. Every program in the code medium, the
+agent's own and both peers', was run in a sandbox and its verbatim output was placed
+in the revision prompt. The sample is \NItems{} GSM8K items and \NAgents{} agents,
 giving \NPairsAgentItem{} item-agent pairs observed in both media. Excess harmful
 conformity was \ExcessNLPct\% in prose and \ExcessCodePct\% in code. The
 pre-registered contrast was exactly zero: $\Delta=\DeltaPct$\%, with a 95\%
@@ -181,6 +209,31 @@ gold, both prose peers assert $W$, and both peer programs execute in a sandbox a
 print exactly $W$. \NStimuli{} items passed. Failures were discarded, never repaired
 by hand.
 
+\subsection{What the agent sees in the executable medium}\label{sec:exec}
+The grounding manipulation is not a claim about code as a writing style. It is about
+whether the object under debate comes with mechanical evidence. We therefore execute
+every program and show the result.
+
+Each program in the code medium is run in an offline sandbox
+(\texttt{src/exec\_sandbox.py}). The sandbox runs the program in a separate
+interpreter process with no network and no third-party libraries, under a timeout,
+and reads the last value it prints. This is done for the agent's own initial program
+and for both peer programs. The verbatim output is then inserted into the revision
+prompt, labelled \texttt{Execution output of this program}. An agent in the sham arm
+therefore reads two peer programs, each with the real output it produced, which by
+construction is the wrong answer $W$. It also reads its own program with its own real
+output. Peer assertions in this medium are thus backed by mechanical evidence rather
+than by confidence alone.
+
+Two scope limits follow, and we state them precisely because they bound what
+``symbolic grounding'' means here. First, the agent does not call an interpreter
+itself. It reads outputs that were produced for it. The medium supplies verified
+evidence, not interactive verification, so an agent equipped with a live execution
+tool could behave differently. Second, the recorded answer is always the agent's
+stated \texttt{FINAL} value, in both media. Executed values are used for the
+manipulation check in Section~\ref{sec:outcome} and are never substituted for the
+stated answer.
+
 \subsection{Agents}
 We use \NAgents{} models at temperature $0$ with an identical system prompt
 (\texttt{claude-haiku-4-5}, \texttt{claude-opus-4-5}). Three agents were
@@ -271,6 +324,14 @@ these, \ExclRemovedAgent{} are the removed agent (D3). The remaining
 \ExclRevisionMissing{} are revision cells never run, because execution stopped at a
 hard token stop in frozen-sample order, below the session inference ceiling (D4).
 
+The exclusion total and the observed total have different denominators, so we state
+both. The \ExclRemovedAgent{} removed-agent rows are counted per pair, over the
+pre-registered three-agent design. The \ExclRevisionMissing{} revision rows are
+counted per pair-arm, and they cover \ExclRevisionPairs{} distinct pairs. Those
+\ExclRevisionPairs{} pairs plus the \NPairs{} observed ones are exactly the
+\CellsDesignRetained{} cells of the two-agent design. No cell was dropped after its
+responses were inspected.
+
 Figure~\ref{fig:main} summarises both findings.
 
 \textbf{The primary contrast is exactly zero.} Excess harmful conformity was
@@ -326,13 +387,16 @@ prompting the validated pipeline did not implement, and the remaining inference 
 did not permit a six-phase run within the submission window (D5). The pre-registered
 cross-domain hypothesis H3 is therefore \emph{untested}, not null.
 
-\textbf{Manipulation check.} In the executable medium the programs agents wrote agreed
-with their stated answers in \ExecConsistPct\% of initial responses. The grounding
-manipulation was therefore live rather than nominal: agents in the code condition
-really were reasoning through artefacts whose output they could read. Sham peer
-programs likewise executed and printed exactly $W$ by construction. Deference in that
-arm cannot be explained by peers whose code visibly failed. The full experiment
-consumed \TotalTokens{} tokens.
+\textbf{Manipulation check.} The check has two parts, matching the two things the
+manipulation requires. First, the agents' own programs were real solutions and not
+decoration: executing them reproduced the agent's stated answer in
+\ExecConsistPct\% of initial responses. Second, the peer programs ran and printed
+exactly $W$ for every stimulus, which stimulus validation enforced before use
+(Section~\ref{sec:exec}). Deference in the sham arm therefore cannot be explained by
+peers whose code visibly failed, and the executable condition was live rather than
+nominal. What the check does not establish is that agents used the outputs. It
+establishes that correct, verified outputs were present and legible in the prompt.
+The full experiment consumed \TotalTokens{} tokens.
 
 \section{Limitations}
 
@@ -373,10 +437,22 @@ dynamics, where conformity could compound, are not measured.
 
 \textbf{Medium is not a single manipulation.} The executable condition differs from
 the prose condition in more than checkability. The answer is produced by a different
-process, the response format differs, and initial accuracy may differ between media.
-We condition on initial correctness within medium so that the excess is computed on
-comparable pairs. Even so, we cannot rule out that some of $\Delta$ reflects these
-accompanying differences rather than checkability as such.
+reasoning process and the response format differs. Three partial defences apply, and
+none of them is complete. We condition on initial correctness within medium, so the
+excess is computed on comparable pairs. Initial accuracy did not in fact differ
+between the media in this run, at \PoolGSMNLPct\% and \PoolGSMCodePct\%, so
+differential starting difficulty is not an available explanation here. Each medium is
+also compared against its own no-peer arm, which absorbs medium-specific
+reconsideration effects. What remains is that $\Delta$ is the effect of a compound
+treatment. A design that holds format fixed while varying only whether execution
+output is shown would isolate checkability, and we did not run it.
+
+\textbf{Verified output, not interactive verification.} Agents read execution output
+that the harness produced for them (Section~\ref{sec:exec}). They could not run new
+code of their own while revising, so they could not test a hypothesis about a peer's
+program. This is the weaker of two forms of grounding. An agent with a live
+execution tool might resist a wrong peer more effectively, and our design cannot
+speak to that case.
 
 \textbf{Exclusions and infrastructure artefacts.} \NExcl{} item-agent pair-arm cells
 were excluded by pre-registered rules (unparseable final answers, execution failures,
@@ -418,6 +494,19 @@ a nuisance to note in passing. It is a first-order design constraint for conform
 and debate studies on current models: pool difficulty has to be screened, and
 reported, before pressure is applied.
 
+We should be precise about what that contributes, because the general warning is not
+surprising on its own. Anyone designing a conformity study would accept in the
+abstract that an easy benchmark is a poor place to look. Three specific things are
+harder to get without running the experiment. The first is a number for sensitivity.
+With no-pressure flips at $c=0$, this design class needs \MinFlips{} discordant flips
+before a conventional test can fire. A future run can check that target against its
+expected event rate before spending any inference budget. The second is that the obvious
+remedy fails. GSM-Hard is the standard harder-arithmetic variant, and it screened at
+\PoolHardNLPct\% and \PoolHardCodePct\%, so difficulty has to be measured on the
+roster in use rather than inherited from a dataset's reputation. The third is the
+instrument itself, released with its validated stimuli. We do not claim the lesson is
+novel. We claim these numbers and this instrument are usable.
+
 \textbf{What we would run next.} The instrument is the transferable part of this
 work. The protocol, stimuli and analysis run unchanged on a different pool and a
 different roster, so three steps follow directly. First, rerun the contrast on a pool
@@ -429,6 +518,16 @@ direction by including sham peers that are correct, which the present design can
 observe at all. We release the pre-registration, the deviation log, the validated
 sham stimuli, and the analysis code so that these runs can reuse the instrument
 rather than rebuild it.
+
+\section*{Acknowledgment}
+We thank the anonymous reviewers. Their reading changed this version in four places.
+The execution mechanism is now described explicitly, because the submitted wording
+left it unclear whether any program was actually run
+(Section~\ref{sec:exec}). The exclusion and observation totals are now reconciled,
+because they are counted over different denominators. The compound nature of the
+medium manipulation is stated with the one check that happens to rule out
+differential starting difficulty. The title now names the outcome, since a question
+alone implies an answer this sample cannot give.
 
 \section*{Code and Data Availability}
 The complete replication package is public. It contains the frozen item sample, the
