@@ -7,12 +7,16 @@
 > response are recorded in [`RESPONSE_TO_REVIEWS.md`](RESPONSE_TO_REVIEWS.md). No new
 > data was collected for the camera-ready and no reported number changed.
 >
-> **Paper:** [`paper/main_postprint.pdf`](paper/main_postprint.pdf). This is the
-> accepted version, posted here under IEEE's allowance for an author's own
-> repository, and it carries the required IEEE copyright notice on page 1. The
-> version of record will appear in IEEE Xplore. `reproduce.sh` rebuilds the paper
-> from the committed logs, so an unnoticed local build is a normal byproduct and is
-> deliberately not tracked.
+> **Paper:** [`paper/main_postprint.pdf`](paper/main_postprint.pdf), the author's
+> accepted version. `reproduce.sh` rebuilds it from the committed logs, so a local
+> build without the provenance line is a normal byproduct and is not tracked.
+>
+> **Publication status.** The acceptance is non-archival by default, meaning
+> presentation at the workshop. The workshop proceedings are an independent
+> standalone volume, separate from the IEEE KSE 2026 conference proceedings and not
+> indexed under IEEE. Inclusion in that volume is opt-in and requires a revision
+> that the organizers judge to have resolved the reviewer comments. This repository
+> will say which outcome applies once it is settled.
 
 A **pre-registered** experiment on *harmful conformity* in multi-agent debate.
 

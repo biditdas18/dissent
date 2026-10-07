@@ -97,5 +97,13 @@ Nothing was removed. No number moved. The reviewers asked for no new experiments
 we ran none, so every quantity in the camera-ready is the same quantity as in the
 submitted version, recomputed by `reproduce.sh` from the same committed logs.
 
-The paper grew from 5 pages to 6, within the workshop's 8-page limit and within the
-host conference's 6-page allowance before per-page charges.
+The paper grew from 5 pages to 6, within the workshop's 8-page limit.
+
+## Status of this document
+
+The acceptance letter of 5 October 2026 accepts the paper as non-archival
+(presentation only) and makes inclusion in the workshop proceedings opt-in,
+conditional on a revision that the organizers judge to have resolved the reviewer
+comments, due 15 October 2026. This document is that account. The proceedings are an
+independent standalone volume, separate from the IEEE KSE proceedings and not indexed
+under IEEE.

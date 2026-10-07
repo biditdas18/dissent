@@ -20,22 +20,23 @@
 \anonfalse
 
 % ---------------------------------------------------------------------------
-% Postprint switch. Leave \postprintfalse for the camera-ready that goes to the
-% proceedings: IEEE adds its own copyright footer there. Set \postprinttrue for
-% the copy posted to arXiv or a personal site, which IEEE policy permits for the
-% accepted version provided the notice below appears on the first page.
-% Build it with paper/build_postprint.sh.
+% Postprint switch. Adds a first-page provenance line to the copy posted
+% publicly. Build it with paper/build_postprint.sh.
+%
+% This notice used to assert IEEE copyright. That was wrong. The acceptance
+% letter of 2026-10-05 states that the NeSyDebates proceedings are an
+% independent standalone volume, separate from the IEEE KSE proceedings and not
+% indexed under IEEE, and that the default acceptance is non-archival
+% (presentation only). IEEE is not the publisher, so an IEEE copyright line
+% would claim a publisher relationship that does not exist. The notice now
+% states only what the acceptance letter supports.
 % ---------------------------------------------------------------------------
 \newif\ifpostprint
 \postprintfalse
-\newcommand{\IEEENotice}{\copyright{} 2026 IEEE. Personal use of this material is
-permitted. Permission from IEEE must be obtained for all other uses, in any current
-or future media, including reprinting/republishing this material for advertising or
-promotional purposes, creating new collective works, for resale or redistribution to
-servers or lists, or reuse of any copyrighted component of this work in other works.
-Accepted at the 1st International Workshop on Neuro-Symbolic Debates for Safeguarded
-Generative AI (NeSyDebates 2026), co-located with the 18th International Conference
-on Knowledge and Systems Engineering (KSE 2026).}
+\newcommand{\PostNotice}{Author's accepted version. Accepted for presentation at
+the 1st International Workshop on Neuro-Symbolic Debates for Safeguarded Generative
+AI (NeSyDebates 2026), co-located with the 18th International Conference on
+Knowledge and Systems Engineering (KSE 2026), Kanazawa, Japan, November 2026.}
 
 % Public code/data URL. MUST be set before submitting: while empty the paper
 % prints a red NOT SET marker rather than silently omitting the statement.
@@ -57,7 +58,7 @@ A Pre-Registered Null and a Benchmark-Saturation Obstacle}
   \author{\IEEEauthorblockN{Anonymous submission}}
 \else
   \ifpostprint
-    \author{\IEEEauthorblockN{Bidit Das}\thanks{\IEEENotice}}
+    \author{\IEEEauthorblockN{Bidit Das}\thanks{\PostNotice}}
   \else
     \author{\IEEEauthorblockN{Bidit Das}}
   \fi

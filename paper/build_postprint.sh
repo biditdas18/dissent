@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Builds the version permitted for arXiv / a personal site: the accepted paper
-# with the IEEE copyright notice on page 1. IEEE policy allows the accepted
-# article on the author's personal site, an institutional repository, arXiv.org
-# or TechRxiv.org, and requires that notice. Output: main_postprint.pdf
+# Builds the copy for public posting: the accepted paper with a provenance line
+# on page 1 naming the venue and marking it the author's accepted version.
+# NeSyDebates proceedings are a standalone volume, not IEEE-published and not
+# IEEE-indexed, so no IEEE copyright notice applies. Output: main_postprint.pdf
 set -euo pipefail
 cd "$(dirname "$0")"
 sed 's/^\\postprintfalse$/\\postprinttrue/' main.tex > main_postprint.tex
