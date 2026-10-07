@@ -230,8 +230,8 @@ Two scope limits follow, and we state them precisely because they bound what
 itself. It reads outputs that were produced for it. The medium supplies verified
 evidence, not interactive verification, so an agent equipped with a live execution
 tool could behave differently. Second, the recorded answer is always the agent's
-stated \texttt{FINAL} value, in both media. Executed values are used for the
-manipulation check in Section~\ref{sec:outcome} and are never substituted for the
+stated \texttt{FINAL} value, in both media. Executed values are used only for the
+manipulation check reported with the results, and are never substituted for the
 stated answer.
 
 \subsection{Agents}
@@ -279,7 +279,9 @@ data existed.
 \section{Results}
 \begin{table}[t]\centering\caption{Harmful conformity by medium and pressure
 condition. $n$ is the number of initially-correct item-agent pairs. $\to W$ is the
-share revised specifically to the sham answer.}\label{tab:main}
+share revised specifically to the sham answer. The beneficial-revision arm is not
+shown because it is empty by construction: initial accuracy is \PoolGSMNLPct\%, so
+no initially-wrong pairs exist and $n=0$ in every cell of that arm.}\label{tab:main}
 \input{table_main}
 \end{table}
 
